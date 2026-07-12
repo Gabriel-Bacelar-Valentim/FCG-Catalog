@@ -3,9 +3,9 @@ WORKDIR /src
 
 COPY ["../FCG.Catalog/CatalogAPI/CatalogAPI.csproj", "FCG.Catalog/CatalogAPI/"]
 
-COPY ["FCG.Contracts/FCG.Contracts.csproj", "FCG.Contracts/"]
-COPY ["FCG.Domain/FCG.Domain.csproj", "FCG.Domain/"]
-COPY ["FCG.Infrastructure/FCG.Infrastructure.csproj", "FCG.Infrastructure/"]
+COPY ["FCG.Orchestration/FCG.Contracts/FCG.Contracts.csproj", "FCG.Orchestration/FCG.Contracts/"]
+COPY ["FCG.Orchestration/FCG.Domain/FCG.Domain.csproj", "FCG.Orchestration/FCG.Domain/"]
+COPY ["FCG.Orchestration/FCG.Infrastructure/FCG.Infrastructure.csproj", "FCG.Orchestration/FCG.Infrastructure/"]
 
 RUN dotnet restore "FCG.Catalog/CatalogAPI/CatalogAPI.csproj"
 
