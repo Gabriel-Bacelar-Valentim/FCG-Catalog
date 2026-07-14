@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: catalog-api
-        image: orchestration-catalog-api:latest
+        image: fcg-catalog-api:latest
         imagePullPolicy: Never 
         ports:
         - containerPort: 8080

@@ -3,26 +3,18 @@ using MassTransit;
 
 namespace FCG.Application.Consumers
 {
-    public class PaymentProcessedConsumer : IConsumer<PaymentProcessedEvent>
+    public class PaymentProcessedConsumer : IConsumer<OrderPlacedEvent>
     {
-        public Task Consume(ConsumeContext<PaymentProcessedEvent> context)
+        public async Task Consume(ConsumeContext<OrderPlacedEvent> context)
         {
             var result = context.Message;
 
-            Console.WriteLine($"--- ATUALIZANDO BIBLIOTECA ---");
-            Console.WriteLine($"Pedido: {result.OrderId}");
-
-            if (result.Status == "Approved")
-            {
-                Console.WriteLine($"Status: APROVADO - Jogo adicionado à biblioteca do usuário {result.UserId}!");
-            }
-            else
-            {
-                Console.WriteLine($"Status: REJEITADO - O pagamento não foi processado.");
-            }
-            Console.WriteLine($"------------------------------");
-
-            return Task.CompletedTask;
+            Console.WriteLine($"--- NOVA COMPRA RECEBIDA ---");
+            Console.WriteLine($"Pedido ID: {result.OrderId}");
+            Console.WriteLine($"Usuário ID: {result.UserId}");
+            Console.WriteLine($"Jogo ID: {result.GameId}");
+            Console.WriteLine($"Preço: {result.Price}");
+            Console.WriteLine($"-----------------------------");
         }
     }
 }
